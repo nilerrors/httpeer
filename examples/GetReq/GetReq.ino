@@ -11,6 +11,7 @@ void setup() {
     });
 
     delay(5000);
+    ESP.restart();
 }
 
 void loop() {}
