@@ -40,7 +40,7 @@ public:
 
     void on(t_http_codes res_code, ResponseHandler fn);
     void onOther(ResponseHandler fn);
-}
+};
 
 
 #endif
