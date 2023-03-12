@@ -59,11 +59,11 @@ General
 *
 **
 ***/
-void Httpeer::_send(t_http_methods method, String path, String content, ResponseHandler handler) {
+void Httpeer::_send(const char *method, String path, String content, ResponseHandler handler) {
     _http.begin(_server_url + path);
 
-    _res_code = _http.sendRequest(method, content.c_str(), content.length());
-    String payload = _http.getString()
+    _res_code = _http.sendRequest(method, content);
+    String payload = _http.getString();
 
     if (handler == nullptr) {
         bool response_handler_found = false;

@@ -1,5 +1,5 @@
 #include <functional>
-#include <unordered_map>
+#include <map>
 #include <Arduino.h>
 #include <HTTPClient.h>
 #include <WiFi.h>
@@ -14,7 +14,7 @@ typedef std::function<void(String payload)> ResponseHandler;
 
 class Httpeer {
 private:
-    std::unordered_map<t_http_codes, ResponseHandler> _response_handlers;
+    std::map<t_http_codes, ResponseHandler> _response_handlers;
     ResponseHandler _other_response_handler = nullptr;
 
     int _res_code = 0;
@@ -23,7 +23,7 @@ private:
 
     HTTPClient _http;
 
-    _send(const char* method, String path, String content, ResponseHandler handler);
+    void _send(const char *method, String path, String content, ResponseHandler handler);
 
 public:
     Httpeer(String server_url);
